@@ -12,6 +12,7 @@ export class UpdatePersonComponent implements OnInit {
 
   p:person;
   id:String;
+  minDate = new Date().toISOString().split("T")[0];
 
   constructor(private route:ActivatedRoute, private router:Router, private personSrv:personService) { 
 

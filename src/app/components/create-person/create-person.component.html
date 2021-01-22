@@ -23,7 +23,7 @@
         <!-- DATE OF BIRTH -->
         <div class="form-group">
           <label for="dob">Date Of Birth</label>
-          <input type="date" min="new date()"  [(ngModel)]="p.dob"  class="form-control" id="dob" name="dob" required #dob="ngModel">
+          <input type="date" [max]="minDate"  [(ngModel)]="p.dob"  class="form-control" id="dob" name="dob" required #dob="ngModel">
         </div>
   
         <div *ngIf="dob.touched && dob.errors?.required" class="alert alert-danger">Date of birth is required</div>

@@ -11,6 +11,7 @@ import { personService } from '../person-service/person-service.component';
 export class CreatePersonComponent implements OnInit {
 
   p:person;
+  minDate = new Date().toISOString().split("T")[0];
 
   constructor(private route:ActivatedRoute, private router:Router, private personSrv:personService) {
 
