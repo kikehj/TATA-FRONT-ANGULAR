@@ -1,0 +1,32 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+  
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Date Of Birth</th>
+
+            <th scope="col">Borrar</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let person of persons">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.address }}</td>
+            <td>{{ person.dob }}</td>
+          
+            <td><button type="button" (click)="delete(person.id)" class="btn btn-info">Delete</button></td>
+            <td><button type="button" (click)="update(person)" class="btn btn-info">Edit</button></td>
+          </tr>
+        </tbody>
+  
+      </table>
+    </div>
+  </div>
+  

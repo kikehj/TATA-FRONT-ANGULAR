@@ -1,0 +1,42 @@
+<div class="card my-5">
+    <div class="card-body">
+  
+      <form (ngSubmit)="onSubmit()" #personForm="ngForm">
+  
+        <!-- id -->
+        <div class="form-group">
+            <label for="id" >id</label>
+            <input type="text" readonly [(ngModel)]="p.id"  class="form-control" id="id" name="id" required #id="ngModel">
+          </div>
+
+        <!-- NAME -->
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" [(ngModel)]="p.name" pattern="[a-zA-ZÑñ \u00C0-\u00FF]*" class="form-control" id="name" name="name" placeholder="Enter your name" required #name="ngModel">
+          </div>
+    
+          <div *ngIf="name.touched && name.errors?.required" class="alert alert-danger">The name is required</div>
+          <div *ngIf="name.errors?.pattern" class="alert alert-danger">Only letters and Spaces are Allowed</div>
+    
+          <!-- ADDRESS -->
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" [(ngModel)]="p.address" class="form-control" id="address" name="address" placeholder="Enter your address" required #address="ngModel">
+          </div>
+    
+          <div *ngIf="address.touched && address.errors?.required" class="alert alert-danger">Address is required</div> 
+      
+          <!-- DATE OF BIRTH -->
+          <div class="form-group">
+            <label for="dob">Date Of Birth</label>
+            <input type="date" min="new date()"  [(ngModel)]="p.dob"  class="form-control" id="dob" name="dob" required #dob="ngModel">
+          </div>
+    
+          <div *ngIf="dob.touched && dob.errors?.required" class="alert alert-danger">Date of birth is required</div>
+  
+          <button type="submit" [disabled]="!personForm.form.valid" class="btn btn-info" style="margin-right:10px">Save</button>
+         <button type="button" (click)="cancel()" class="btn btn-info">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
